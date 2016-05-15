@@ -10,3 +10,4 @@ var/importexport
 var/log
 var/report
 media/catalog/product/cache
+.idea/
