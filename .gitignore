@@ -1,1 +1,13 @@
-var/
+app/etc/local.xml
+downloader/.cache
+downloader/cache.cfg
+downloader/connect.cfg
+var/cache
+var/session
+var/locks
+var/package
+var/importexport
+var/log
+var/report
+media/catalog/product/cache
+.idea/
