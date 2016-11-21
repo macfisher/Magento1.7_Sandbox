@@ -13,3 +13,4 @@ media/catalog/product/cache
 .idea/
 *.phpproj
 *.vs
+*.sln
