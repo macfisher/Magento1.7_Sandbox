@@ -59,6 +59,7 @@
             <adminhtml>
                 <args>
                     <frontName><![CDATA[admin]]></frontName>
+                    <!-- username:admin password:password123 -->
                 </args>
             </adminhtml>
         </routers>
