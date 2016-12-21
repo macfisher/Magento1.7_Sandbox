@@ -13,7 +13,7 @@ class Magentostudy_News_Block_adminhtml_News_Edit
     public function __construct()
     {
         $this->_objectId = 'id';
-        $this->_blockGroup = 'magentostudy_news'
+        $this->_blockGroup = 'magentostudy_news';
         $this->_controller = 'adminhtml_news';
 
         parent::_construct();
