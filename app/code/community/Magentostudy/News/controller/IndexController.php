@@ -64,7 +64,7 @@ class Magentostudy_News_IndexController extends
                 $page = 1;
             }
 
-            $itemBlock->setPage();
+            $itemBlock->setPage($page);
         }
 
         $this->renderLayout();
