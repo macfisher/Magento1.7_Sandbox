@@ -1,17 +1,17 @@
 <?php
 /**
- * News List Admin edit form content tab
+ * News List admin edit form content tab
  *
  * @author Magento
  */
-class Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
+class Magentostudy_News_Block_Adminhtml_News_Edit_Tab_Content
     extends Mage_Adminhtml_Block_Widget_Form
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
 {
     /**
      * Load WYSIWYG on demand and prepare layout
      *
-     * @return Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
+     * @return Magentostudy_News_Block_Adminhtml_News_Edit_Tab_Content
      */
     protected function _prepareLayout()
     {
@@ -23,7 +23,7 @@ class Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
     }
 
     /**
-     * Prepare tab form
+     * Prepares tab form
      *
      * @return Mage_Adminhtml_Block_Widget_Form
      */
@@ -32,9 +32,9 @@ class Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
         $model = Mage::helper('magentostudy_news')->getNewsItemInstance();
 
         /**
-         * Checking if user has permissions to save information
+         * Checking if user have permissions to save information
          */
-        if (Mage::helper('magentostudy_news/Admin')->isActionAllowed('save')) {
+        if (Mage::helper('magentostudy_news/admin')->isActionAllowed('save')) {
             $isElementDisabled = false;
         } else {
             $isElementDisabled = true;
@@ -49,10 +49,9 @@ class Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
             'class'  => 'fieldset-wide'
         ));
 
-        $wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')
-            ->getConfig(array(
-                'tab_id' => $this->getTabId()
-            ));
+        $wysiwygConfig = Mage::getSingleton('cms/wysiwyg_config')->getConfig(array(
+            'tab_id' => $this->getTabId()
+        ));
 
         $contentField = $fieldset->addField('content', 'editor', array(
             'name'     => 'content',
@@ -63,17 +62,14 @@ class Magentostudy_News_Block_adminhtml_News_Edit_Tab_Content
         ));
 
         // Setting custom renderer for content field to remove label column
-        $renderer = $this->getLayout()
-            ->createBlock('adminhtml/widget_form_renderer_fieldset_element')
+        $renderer = $this->getLayout()->createBlock('adminhtml/widget_form_renderer_fieldset_element')
             ->setTemplate('cms/page/edit/form/renderer/content.phtml');
         $contentField->setRenderer($renderer);
 
         $form->setValues($model->getData());
         $this->setForm($form);
 
-        Mage::dispatchEvent('adminhtml_news_edit_tab_content_prepare_form', array(
-            'form' => $form
-        ));
+        Mage::dispatchEvent('adminhtml_news_edit_tab_content_prepare_form', array('form' => $form));
 
         return parent::_prepareForm();
     }

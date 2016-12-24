@@ -1,16 +1,15 @@
 <?php
 /**
- * News List Admin edit form block
+ * News List admin edit form block
  *
  * @author Magento
  */
-class Magentostudy_News_Block_adminhtml_News_Edit_Form
-    extends Mage_Adminhtml_Block_Widget_Form
+class Magentostudy_News_Block_Adminhtml_News_Edit_Form extends Mage_Adminhtml_Block_Widget_Form
 {
     /**
      * Prepare form action
      *
-     * @return Magentostudy_News_Block_adminhtml_News_Edit_Form
+     * @return Magentostudy_News_Block_Adminhtml_News_Edit_Form
      */
     protected function _prepareForm()
     {
