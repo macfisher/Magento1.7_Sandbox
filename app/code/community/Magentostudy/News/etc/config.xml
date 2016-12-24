@@ -72,7 +72,7 @@
             <adminhtml>
                 <args>
                     <modules>
-                        <Magentostudy_News before="Mage_adminhtml">Magento_News_adminhtml</Magentostudy_News>
+                        <Magentostudy_News before="Mage_Adminhtml">Magentostudy_News_Adminhtml</Magentostudy_News>
                     </modules>
                 </args>
             </adminhtml>

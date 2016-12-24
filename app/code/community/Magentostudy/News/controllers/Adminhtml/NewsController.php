@@ -4,13 +4,13 @@
  *
  * @author Magento
  */
-class Magentostudy_News_controller_adminhtml_NewsController
+class Magentostudy_News_Adminhtml_NewsController
     extends Mage_Adminhtml_Controller_Action
 {
     /**
      * Init actions
      *
-     * @return Magentostudy_News_controller_adminhtml_NewsController
+     * @return Magentostudy_News_Adminhtml_NewsController
      */
     protected function _initAction()
     {
@@ -61,7 +61,7 @@ class Magentostudy_News_controller_adminhtml_NewsController
         /* @var $model Magentostudy_News_Model_Item */
         $model = Mage::getModel('magentostudy_news/news');
 
-        // 2. if ID exists, check it and load data
+        // 2. if exists id, check it and load data
         $newsId = $this->getRequest()->getParam('id');
         if ($newsId) {
             $model->load($newsId);
@@ -83,7 +83,7 @@ class Magentostudy_News_controller_adminhtml_NewsController
         // Init breadcrumbs
         $this->_initAction()->_addBreadcrumb($breadCrumb, $breadCrumb);
 
-        // 3. Set entered data if there was an error during save
+        // 3. Set entered data if was error when we do save
         $data = Mage::getSingleton('adminhtml/session')->getFormData(true);
         if (!empty($data)) {
             $model->addData($data);
@@ -101,7 +101,7 @@ class Magentostudy_News_controller_adminhtml_NewsController
      */
     public function saveAction()
     {
-        $redirectPath = '*/*';
+        $redirectPath   = '*/*';
         $redirectParams = array();
 
         // check if data sent
@@ -155,7 +155,7 @@ class Magentostudy_News_controller_adminhtml_NewsController
 
                 // check if 'Save and Continue'
                 if ($this->getRequest()->getParam('back')) {
-                    $redirectPath = '*/*/edit';
+                    $redirectPath   = '*/*/edit';
                     $redirectParams = array('id' => $model->getId());
                 }
             } catch (Mage_Core_Exception $e) {
@@ -164,14 +164,13 @@ class Magentostudy_News_controller_adminhtml_NewsController
             } catch (Exception $e) {
                 $hasError = true;
                 $this->_getSession()->addException($e,
-                    Mage::helper('magentostudy_news')
-                        ->__('An error occurred while saving the news item.')
+                    Mage::helper('magentostudy_news')->__('An error occurred while saving the news item.')
                 );
             }
 
             if ($hasError) {
                 $this->_getSession()->setFormData($data);
-                $redirectPath = '*/*/edit';
+                $redirectPath   = '*/*/edit';
                 $redirectParams = array('id' => $this->getRequest()->getParam('id'));
             }
         }
@@ -189,25 +188,23 @@ class Magentostudy_News_controller_adminhtml_NewsController
         if ($itemId) {
             try {
                 // init model and delete
-                /* @var $model Magentostudy_News_Model_Item */
+                /** @var $model Magentostudy_News_Model_Item */
                 $model = Mage::getModel('magentostudy_news/news');
                 $model->load($itemId);
                 if (!$model->getId()) {
-                    Mage::throwException(Mage::helper('magentostudy_news'))
-                        ->__('Unable to find a news item.');
+                    Mage::throwException(Mage::helper('magentostudy_news')->__('Unable to find a news item.'));
                 }
                 $model->delete();
 
                 // display success message
                 $this->_getSession()->addSuccess(
-                    Mage::helper('magentostudy_news')->__('The news item has been deleted')
+                    Mage::helper('magentostudy_news')->__('The news item has been deleted.')
                 );
             } catch (Mage_Core_Exception $e) {
                 $this->_getSession()->addError($e->getMessage());
             } catch (Exception $e) {
                 $this->_getSession()->addException($e,
-                    Mage::helper('magentostudy_news')
-                        ->__('An error occurred while deleting the news item.')
+                    Mage::helper('magentostudy_news')->__('An error occurred while deleting the news item.')
                 );
             }
         }
@@ -226,16 +223,13 @@ class Magentostudy_News_controller_adminhtml_NewsController
         switch ($this->getRequest()->getActionName()) {
             case 'new':
             case 'save':
-                return Mage::getSingleton('Admin/session')
-                    ->isAllowed('news/manage/save');
+                return Mage::getSingleton('admin/session')->isAllowed('news/manage/save');
                 break;
             case 'delete':
-                return Mage::getSingleton('Admin/session')
-                    ->isAllowed('news/manage/delete');
+                return Mage::getSingleton('admin/session')->isAllowed('news/manage/delete');
                 break;
             default:
-                return Mage::getSingleton('Admin/session')
-                    ->isAllowed('news/manage');
+                return Mage::getSingleton('admin/session')->isAllowed('news/manage');
                 break;
         }
     }
@@ -266,10 +260,10 @@ class Magentostudy_News_controller_adminhtml_NewsController
      */
     public function flushAction()
     {
-        if (Mage::helper('magentostudy_news/image')->flushImageCache()) {
+        if (Mage::helper('magentostudy_news/image')->flushImagesCache()) {
             $this->_getSession()->addSuccess('Cache successfully flushed');
         } else {
-            $this->_getSession()->addError('There was an error during flushing cache');
+            $this->_getSession()->addError('There was error during flushing cache');
         }
         $this->_forward('index');
     }

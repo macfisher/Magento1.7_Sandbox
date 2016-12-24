@@ -20,7 +20,7 @@
     </menu>
     <acl>
         <resources>
-            <Admin>
+            <admin>
                 <children>
                     <news translate="title" module="magentostudy_news">
                         <title>News</title>
@@ -54,7 +54,7 @@
                         </children>
                     </system>
                 </children>
-            </Admin>
+            </admin>
         </resources>
     </acl>
 </config>
