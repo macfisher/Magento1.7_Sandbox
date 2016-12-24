@@ -4,8 +4,7 @@
  *
  * @author Magento
  */
-class Magentostudy_News_Adminhtml_NewsController
-    extends Mage_Adminhtml_Controller_Action
+class Magentostudy_News_Adminhtml_NewsController extends Mage_Adminhtml_Controller_Action
 {
     /**
      * Init actions
@@ -18,13 +17,14 @@ class Magentostudy_News_Adminhtml_NewsController
         $this->loadLayout()
             ->_setActiveMenu('news/manage')
             ->_addBreadcrumb(
-                Mage::helper('magentostudy_news')->__('News'),
-                Mage::helper('magentostudy_news')->__('News')
-            )
+                  Mage::helper('magentostudy_news')->__('News'),
+                  Mage::helper('magentostudy_news')->__('News')
+              )
             ->_addBreadcrumb(
-                Mage::helper('magentostudy_news')->__('Manage News'),
-                Mage::helper('magentostudy_news')->__('Manage News')
-            );
+                  Mage::helper('magentostudy_news')->__('Manage News'),
+                  Mage::helper('magentostudy_news')->__('Manage News')
+              )
+        ;
         return $this;
     }
 
@@ -34,7 +34,7 @@ class Magentostudy_News_Adminhtml_NewsController
     public function indexAction()
     {
         $this->_title($this->__('News'))
-            ->_title($this->__('Manage News'));
+             ->_title($this->__('Manage News'));
 
         $this->_initAction();
         $this->renderLayout();
@@ -55,7 +55,7 @@ class Magentostudy_News_Adminhtml_NewsController
     public function editAction()
     {
         $this->_title($this->__('News'))
-            ->_title($this->__('Manage News'));
+             ->_title($this->__('Manage News'));
 
         // 1. instance news model
         /* @var $model Magentostudy_News_Model_Item */

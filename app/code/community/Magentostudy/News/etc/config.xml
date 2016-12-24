@@ -1,4 +1,11 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Module configuration
+ *
+ * @author Magento
+ */
+-->
 <config>
     <modules>
         <Magentostudy_News>
