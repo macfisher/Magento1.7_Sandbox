@@ -12,5 +12,6 @@ var/report
 media/catalog/product/cache
 .idea/
 *.phpproj
+*.phpproj.user
 *.vs
 *.sln
