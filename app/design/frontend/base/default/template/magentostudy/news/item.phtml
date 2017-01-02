@@ -17,7 +17,7 @@
     <h1><?php echo $this->escapeHtml($_newsItem->getTitle()) ?></h1>
 
     <div class="news_item_subtitle">
-        <?php echo $this->formatDate($_newsItem->getTimePublished(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM) ?> |
+        <?php echo $this->formatDate($_newsItem->getPublishedAt(), Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM) ?> |
         <?php echo $this->escapeHtml($_newsItem->getAuthor()) ?>
     </div>
 </div>

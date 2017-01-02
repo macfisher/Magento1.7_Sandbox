@@ -25,7 +25,7 @@
             </h2>
 
             <div class="news_item_subtitle">
-                <?php echo $this->formatDate($newsItem->getTimePublished(), 'medium') ?> |
+                <?php echo $this->formatDate($newsItem->getPublishedAt(), 'medium') ?> |
                 <?php echo $this->escapeHtml($newsItem->getAuthor()) ?>
             </div>
 
